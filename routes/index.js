@@ -16,5 +16,10 @@ module.exports = (params) => {
 	router.use('/speakers', speakersRoute(params));
 	router.use('/feedback', feedbackRoute(params));
 
+	//Error example:
+	router.get('/throw', (req, res, next) => {
+		return next(new Error('Some Error'));
+	});
+
 	return router;
 };
